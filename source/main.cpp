@@ -1,26 +1,31 @@
 #include <cmath>
 #include <print>
 
-auto make_ppm(int height, int width) -> void {
-  std::println("P3");
-  std::println("{} {}", height, width);
-  std
-}
+// auto make_ppm(int r, int g, int b) -> void {
+//   std::println("P3\n650 700\n255");
+// for (int y = 0; y < 700; y++) {
+//   for (int x = 0; x < 650; x++) {
+//     std::print("{} {} {}\n", (x % 256), (y % 256), ((x * y) % 256));
+//   }
+// }
+//   std::print("{} {} {}\n", r, g, b);
+// }
 
-auto main(void) -> int {
-
-  int radius = 20;
-  double tolerance = 0.5;
-  for (int x = 0; x < 64; x++) {
-    for (int y = 0; y < 48; y++) {
-      double res = std::pow((x - 32), 2) + std::pow((y - 24), 2);
-      if (res > std::pow(radius, 2) - tolerance &&
-          res < std::pow(radius, 2) + tolerance) {
-        std::print("o");
+auto makeCirclePPM() -> void {
+  std::println("P3\n650 700\n255");
+  constexpr int radius = 250;
+  constexpr double tolerance = 0.5;
+  for (int y = 0; y < 700; y++) {
+    for (int x = 0; x < 650; x++) {
+      double res = std::pow((x - 350), 2) + std::pow((y - 325), 2);
+      if (res <= std::pow(radius, 2)) {
+        std::print("255 255 255\n");
       } else {
-        std::print(" ");
+        std::print("0 0 0\n");
       }
     }
-    std::println("");
+    // std::println("");
   }
 }
+
+auto main(void) -> int { makeCirclePPM(); }
