@@ -1,5 +1,6 @@
 #include <cmath>
 #include <print>
+#include "vec3.hpp"
 
 // auto make_ppm(int r, int g, int b) -> void {
 //   std::println("P3\n650 700\n255");
@@ -10,6 +11,7 @@
 // }
 //   std::print("{} {} {}\n", r, g, b);
 // }
+
 
 auto makeCirclePPM() -> void {
   std::println("P3\n650 700\n255");
@@ -28,4 +30,12 @@ auto makeCirclePPM() -> void {
   }
 }
 
-auto main(void) -> int { makeCirclePPM(); }
+auto main(void) -> int {
+    constexpr vec3 camera{0, 0, -20};
+    constexpr vec3 view_dir{0, 0, 1};
+    constexpr auto focal_dist = 10;
+
+    auto screen_center = camera + scalarMult(focal_dist, view_dir);
+
+
+}
