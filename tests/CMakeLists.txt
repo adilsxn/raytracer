@@ -1,18 +1,20 @@
 cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
 
+
 # Enable the module to find or download 3rd party packages
-include(cmake/CPM.cmake)
+# include(cmake/CPM.cmake)
+enable_testing()
 
 CPMAddPackage("gh:doctest/doctest@2.4.12")
 
 #Setting the test source files variable
-set(TEST_SOURCES 
+set(TEST_SOURCES
 )
 
 #Create test executables
 add_executable(unit_tests ${TEST_SOURCES})
 
-#Link doctest lib 
+#Link doctest lib
 target_link_libraries(unit_tests PRIVATE doctest::doctest)
 
 #Include project headers
