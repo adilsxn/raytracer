@@ -14,21 +14,22 @@ add_compile_options (-Wall -Wextra -Werror -Wpedantic)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 #Source files
-set(SRC_FILES 
+set(SRC_FILES
     src/main.cpp
     src/vec3.hpp
 )
 
 #Add sources subdirectory
-include_subdirectories(src)
+add_subdirectory(src)
 
 #Main project executable
-add_executable(rt ${SRC_FILES})
+add_executable(rt ${SRC_FILES}
+        src/main.cpp)
 
 include (CTest)
 enable_testing()
 
 
 #Add tests subdirectory
-include_subdirectories(test)
+add_subdirectory(tests)
 
