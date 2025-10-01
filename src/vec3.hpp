@@ -42,7 +42,7 @@ public:
   constexpr auto scalar(int scalar) -> vec3 {
     return vec3{_x * scalar, _y * scalar, _z * scalar};
   }
-  constexpr auto norma() -> vec3 {
+  constexpr auto normalize() -> vec3 {
     return vec3{_x / length(), _y / length(), _z / length()};
   }
 };
