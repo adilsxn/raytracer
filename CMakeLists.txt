@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
 project(raytracer VERSION 0.0.1 LANGUAGES CXX)
 
 #Set the CPP standard
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -13,22 +13,10 @@ add_compile_options (-Wall -Wextra -Werror -Wpedantic)
 # Output structure
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-#Source files
-set(SRC_FILES
-    src/main.cpp
-    src/vec3.hpp
-)
+include (cmake/CPM.cmake)
 
 #Add sources subdirectory
 add_subdirectory(src)
-
-#Main project executable
-add_executable(rt ${SRC_FILES}
-        src/main.cpp)
-
-include (CTest)
-enable_testing()
-
 
 #Add tests subdirectory
 add_subdirectory(tests)
