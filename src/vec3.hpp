@@ -2,6 +2,7 @@
 #define VEC3_H
 
 #include <cmath>
+#include <compare>
 
 class vec3 {
   double _x;
@@ -15,6 +16,8 @@ public:
   vec3 operator+(vec3 rhs) const {
     return vec3{_x + rhs._x, _y + rhs._y, _z + rhs._z};
   }
+
+  auto operator<=>(const vec3 &) const = default;
 
   constexpr vec3 operator-(vec3 rhs) const {
     return vec3{_x - rhs._x, _y - rhs._y, _z - rhs._z};
@@ -39,7 +42,7 @@ public:
     return _x * b._x + _y * b._y + _z * b._z;
   }
 
-  constexpr auto scalar(int scalar) -> vec3 {
+  constexpr auto scalar(int scalar) const -> vec3 {
     return vec3{_x * scalar, _y * scalar, _z * scalar};
   }
   constexpr auto normalize() -> vec3 {
