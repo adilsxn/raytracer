@@ -38,11 +38,15 @@ public:
     return std::sqrt(_x * _x + _y * _y + _z * _z);
   }
 
+  constexpr auto lerp(vec3 start, vec3 end, int t) const -> vec3 {
+    return start.scale(1 - t) + end.scale(t);
+  }
+
   constexpr auto dot(vec3 b) -> double {
     return _x * b._x + _y * b._y + _z * b._z;
   }
 
-  constexpr auto scalar(int scalar) const -> vec3 {
+  constexpr auto scale(int scalar) const -> vec3 {
     return vec3{_x * scalar, _y * scalar, _z * scalar};
   }
   constexpr auto normalize() -> vec3 {
