@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
 
 project(raytracer VERSION 0.0.1 LANGUAGES CXX)
 
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #Set the CPP standard
