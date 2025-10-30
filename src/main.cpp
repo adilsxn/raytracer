@@ -1,3 +1,4 @@
+#include "ray.hpp"
 #include "vec3.hpp"
 #include <cmath>
 #include <print>
@@ -29,20 +30,25 @@ auto makeCirclePPM() -> void {
   }
 }
 
-auto main(void) -> int {
-  // constexpr auto width = 64;
-  // constexpr auto height = 48;
-  // constexpr vec3 camera{0, 0, -20};
-  // constexpr vec3 view_dir{0, 0, 1};
-  // constexpr auto focal_dist = 10;
-  //
-  // auto screen_center = camera + view_dir.scalar(focal_dist);
-  // // auto ray_dir = -camera;
-  //
-  // for (auto x = 0; x < width; ++x) {
-  //   for (auto y = 0; y < height; ++y) {
-  //     auto it = x * y;
-  //   }
-  // }
+auto main() -> int {
+  constexpr auto width = 960;
+  constexpr auto height = 720;
+  auto top_left = vec3{-1, 0.75, 0};
+  auto top_right = vec3{1, 0.75, 0};
+  auto bot_left = vec3{-1, -0.75, 0};
+  auto bot_right = vec3{1, -0.75, 0};
+  auto camera = vec3{0, 0, -1};
+
+  for (auto x = 0; x < width; x++) {
+    for (auto y = 0; y < height; y++) {
+      auto xx = (double)x;
+      auto yy = (double)(height - y - 1);
+      auto top = vec3::lerp(top_left, top_right, xx);
+      auto bot = vec3::lerp(bot_left, bot_right, xx);
+      auto point = vec3::lerp(top, bot, yy);
+      auto rr = ray(camera, (point - camera));
+    }
+  }
+
   std::print("");
 }

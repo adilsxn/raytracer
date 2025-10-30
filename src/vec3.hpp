@@ -38,7 +38,7 @@ public:
     return std::sqrt(_x * _x + _y * _y + _z * _z);
   }
 
-  constexpr auto lerp(vec3 start, vec3 end, int t) const -> vec3 {
+  static constexpr auto lerp(vec3 start, vec3 end, double t) -> vec3 {
     return start.scale(1 - t) + end.scale(t);
   }
 

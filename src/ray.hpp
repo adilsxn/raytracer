@@ -3,9 +3,14 @@
 
 #include "vec3.hpp"
 
-class ray {
-  vec3 origin;
-  vec3 direction;
+struct ray {
+  vec3 _orig;
+  vec3 _dir;
+
+  explicit constexpr ray(vec3 orig, vec3 dir)
+      : _orig{orig}, _dir{dir} {
+
+        };
 };
 
 #endif // !RAY_HPP
