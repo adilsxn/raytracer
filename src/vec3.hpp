@@ -4,12 +4,12 @@
 #include <cmath>
 #include <compare>
 
-class vec3 {
+struct vec3 {
   double _x;
   double _y;
   double _z;
 
-public:
+  // public:
   explicit constexpr vec3(double val) : _x{val}, _y{val}, _z{val} {};
   explicit constexpr vec3(double x, double y, double z)
       : _x{x}, _y{y}, _z{z} {};
