@@ -1,7 +1,0 @@
-#ifndef COMMON_MACROS_HPP
-#define COMMON_MACROS_HPP
-
-#define WIDTH 920
-#define HEIGHT 720
-
-#endif // !COMMON_MACROS_HPP
